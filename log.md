@@ -10,4 +10,4 @@ AD9361板卡型号[AD-FMCOMMS3-EBZ](https://wiki.analog.com/resources/eval/user-
 
 参考视频：ZED9361发布视频1-3，升级至2018
 
-参考页面：[AD板卡官方文档](https://wiki.analog.com/resources/eval/user-guides/ad-fmcomms3-ebz), [适配 OS](https://wiki.analog.com/resources/tools-software/linux-software/embedded_arm_images?rev=1657888888), [适配软件](https://wiki.analog.com/resources/tools-software/linux-software/fmcomms2_plugin), [HDL文件](https://github.com/analogdevicesinc/hdl/tree/master/projects/fmcomms2/zed)
+参考页面：[AD板卡官方文档](https://wiki.analog.com/resources/eval/user-guides/ad-fmcomms3-ebz), [适配 OS](https://wiki.analog.com/resources/tools-software/linux-software/embedded_arm_images?rev=1657888888), [适配软件](https://wiki.analog.com/resources/tools-software/linux-software/fmcomms2_plugin), [HDL文件](https://github.com/analogdevicesinc/hdl/tree/master/projects/fmcomms2/zed), [no-OS软件驱动](https://github.com/analogdevicesinc/no-OS/tree/master/projects/fmcadc2)
