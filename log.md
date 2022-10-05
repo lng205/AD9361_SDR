@@ -33,3 +33,11 @@ Zedboard板卡厂Digilent为NI子公司，为Xilinx合作伙伴。
 AD家的HDL代码仓两年发布一次正式更新，主分支为最新开发版，目前的最新正式版为2021第一版(2021_r1)。由于Vivado版本间不兼容，需使用对应的Vivado版本(2021.1)进行开发。代码仓库中提供了顶层设计代码、IP核代码及tcl脚本。
 
 安装Vivado 2021.1于C:\Xilinx。
+
+## 10/5
+
+学习[GNU Make](https://csdiy.wiki/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/GNU_Make/)。GNU是一套软件集，其名字源自递归缩写等文字游戏（还neta了Unix）。GNU Make可以调用不同的编译器，对源码进行编译或是更新输出文件。虽然Vivado SDK也提供了Tcl脚本支持，但还是不如Make方便高效。
+
+Windows下运行类Unix的GNU Make程序可以选择安装Cygwin，一套在Windows中运行的GNU。
+
+安装Cygwin于C:\cygwin64，安装make和git包。
