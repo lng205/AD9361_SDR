@@ -24,7 +24,7 @@ AD9361板卡型号[AD-FMCOMMS3-EBZ](https://wiki.analog.com/resources/eval/user-
 
 [特性曲线](https://wiki.analog.com/resources/eval/user-guides/ad-fmcomms3-ebz/hardware/card_specification)(LO=Local Oscillator)
 
-[**no-OS软件驱动文档**](https://wiki.analog.com/resources/eval/user-guides/ad-fmcomms2-ebz/software/baremetal)
+[**no-OS软件驱动文档**](https://wiki.analog.com/resources/eval/user-guides/ad-fmcomms2-ebz/software/baremetal)（此文档最后更新于2018, 所用软件开发工具为SDK而非后来推出的Vitis）
 
 Zedboard板卡厂Digilent为NI子公司，为Xilinx合作伙伴。
 
@@ -41,3 +41,27 @@ AD家的HDL代码仓两年发布一次正式更新，主分支为最新开发版
 Windows下运行类Unix的GNU Make程序可以选择安装Cygwin，一套在Windows中运行的GNU。
 
 安装Cygwin于C:\cygwin64，安装make和git包。
+
+## 10/6
+
+### 学习AD代码仓提供的项目食用教程
+
+于Cygwin根目录bashrc文件(C:\cygwin64\home\IntelLab)添加环境变量: export PATH=$PATH:/cygdrive/c/Xilinx/Vivado/2021.1/bin:/cygdrive/c/Xilinx/Vitis/2021.1/bin
+
+通过Cygwin，于D:\zedboard\hdl-2021_r1\projects\fmcomms2\zed运行make, 得到.xpr项目文件，在Vivado中打开即可（no-OS开发需要的.xsa文件（即Vivado2019.3前的.hdf文件）位于sdk目录）。
+
+![运行结果](p2.jpg)
+
+---
+
+发现Vivado默认不包含Vitis, [追加安装Vitis](https://blog.csdn.net/tcjy1000/article/details/126567610).
+
+[driverDoc](http://analogdevicesinc.github.io/no-OS/dir_4ed417a91f9ccc543343a95aa671159a.html)
+
+复制2021_r1源码至D:\zedboard\no-OS-2021_R1. 复制.xsa文件至projects\ad9361目录。
+
+以管理员模式运行cmd, 运行setting64.bat后运行make.
+
+![运行结果](p3.jpg)
+
+运行make sdkopen在Vitis中打开项目。
