@@ -26,7 +26,7 @@ AD9361板卡型号[AD-FMCOMMS3-EBZ](https://wiki.analog.com/resources/eval/user-
 
 [**no-OS软件驱动文档**](https://wiki.analog.com/resources/eval/user-guides/ad-fmcomms2-ebz/software/baremetal)（此文档最后更新于2018, 所用软件开发工具为SDK而非后来推出的Vitis）
 
-Zedboard板卡厂Digilent为NI子公司，为Xilinx合作伙伴。
+Zedboard板卡厂Digilent为NI子公司，为Xilinx合作伙伴。另一板卡厂AVNET也提供了完整的[文档支持](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/zedboard/)。
 
 [AD家的HDL文档1](https://wiki.analog.com/resources/fpga/docs/build#windows_environment_setup), [2](https://wiki.analog.com/resources/fpga/docs/hdl)
 
@@ -65,3 +65,15 @@ Windows下运行类Unix的GNU Make程序可以选择安装Cygwin，一套在Wind
 ![运行结果](p3.jpg)
 
 运行make sdkopen在Vitis中打开项目。
+
+10/7
+
+尝试在Vivado连接设备，报错。发现是设备中安装了Hyper-V虚拟机所致，参考[此页](https://fpgacoding.com/to-v-or-not-to-v/)解决。执行了以下操作：
+
+> So I disabled Hyper-V in Settings | Apps & Features | Programs and Features | Windows Features.
+
+解决了连接问题。后续如果要用Hyper-V虚拟机需重新启用此项。
+
+---
+
+串口跑不通，新建一个hello world也不行。力不从心，歇了。
