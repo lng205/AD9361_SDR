@@ -66,7 +66,7 @@ Windows下运行类Unix的GNU Make程序可以选择安装Cygwin，一套在Wind
 
 运行make sdkopen在Vitis中打开项目。
 
-10/7
+## 10/7
 
 尝试在Vivado连接设备，报错。发现是设备中安装了Hyper-V虚拟机所致，参考[此页](https://fpgacoding.com/to-v-or-not-to-v/)解决。执行了以下操作：
 
@@ -77,3 +77,15 @@ Windows下运行类Unix的GNU Make程序可以选择安装Cygwin，一套在Wind
 ---
 
 串口跑不通，新建一个hello world也不行。力不从心，歇了。
+
+## 2/22
+
+烧录linux镜像至SD卡。
+
+https://wiki.analog.com/resources/tools-software/linux-software/zynq_images
+
+根据BOOT盘根目录的readme，将zynq项目所需文件复制至根目录。
+
+## 2/23
+
+点亮系统，等待OTG转接头，学习设计通信参数配置。
