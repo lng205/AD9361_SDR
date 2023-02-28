@@ -89,3 +89,33 @@ https://wiki.analog.com/resources/tools-software/linux-software/zynq_images
 ## 2/23
 
 点亮系统，等待OTG转接头，学习设计通信参数配置。
+
+## 2/24
+
+测试传输效果，单音及双音收发正常。
+
+## 2/25
+
+测试QPSK。
+
+## 2/26
+
+测试QPSK。samba服务不可用，怀疑是网线直连没有DHCP的原因，等待网线快递。
+
+## 2/27
+
+通过路由器连接至同一局域网依然无法使用samba软件在Windows系统和ZYNQ的Linux系统间传送文件，重新安装samba服务。配置成功，可以通过网络共享文件。
+
+参考页面：https://www.cnblogs.com/shellstudio/p/10756419.html#:~:text=%E5%90%AF%E5%8A%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BB%A5%E5%90%8E%EF%BC%8C%E5%9C%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%85%A5%EF%BC%9A%20sudo%20apt%20-get%20update%20sudo%20apt,-get%20install%20samba%20samba%20-%20common%20-%20bin
+
+https://forum.ubuntu.com.cn/viewtopic.php?t=275853
+
+https://www.cnblogs.com/yunmeng-shi/p/16215277.html
+
+生成QPSK数据输入板卡并接收。
+
+## 2/28
+
+测试QPSK，发现IQ两路间存在串扰。起初以为IQ两路基带信号需要正交，但这样QPSK的实现会十分复杂。
+
+向刘博求助后发现可能是收发端载波本振存在相差。调节IIO软件内的接收机相位旋转参数，可以较好地接收NRZ信号。
