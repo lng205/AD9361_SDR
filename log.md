@@ -148,3 +148,11 @@ $$I(t) = I_R(t)\cos(\phi)+Q_R(t)\sin(\phi)
 \\Q(t) = Q_R(t)\cos(\phi)-I_R(t)\sin(\phi)$$
 然而，由于arctan函数以pi为周期，存在相位模糊问题。为了解决这个问题，可以设计特殊的训练序列，例如[1,1,1,0,0,1,0,0]，该序列具有零均值且可用于判断极性。
 最后，可以通过实验验证相位差补偿算法的效果，并对算法进行优化和调整。
+
+# 3/22
+
+install [openwifi](https://github.com/open-sdr/openwifi)
+
+set ip(restart the ethernet)
+
+![ip](ip_set.png)
