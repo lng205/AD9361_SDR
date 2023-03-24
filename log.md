@@ -156,3 +156,87 @@ install [openwifi](https://github.com/open-sdr/openwifi)
 set ip(restart the ethernet)
 
 ![ip](ip_set.png)
+
+# 3/24
+
+## openofdm notes
+
+(all according to 802.11)
+
+> input: samples\
+> output: data
+
+### packet detection
+
+- power trigger
+  
+    wait for large enough signal samples to avoid fake positive.
+
+- short preamble
+  
+  use auto correlation to sync package and do freq correction
+
+  (20MHz BW, 18ppm(0.0018%) LO precision->deltaF=90kHz for 5G)
+
+### Frequency offset  correction
+
+- coarse
+  
+  short preamble
+
+- fine
+  
+  long preamble(omitted)
+
+- pilot
+
+  user pilot symbol in each OFDM frame to correct SFO(sample freq offset)
+
+### symbol alignment
+
+- In 802.11, each OFDM symbol is 4 μs long. At 20 MSPS sampling rate, this means each OFDM symbol contains 80 samples. The task is to group the incoming streaming of samples into 80-sample OFDM symbols. This can be achieved using the long preamble following the short preamble.
+
+  ![OFDM_frame](OFDM_frame.png)
+
+- FFT
+
+  Xilinx IP core.(64 data symbol per OFDM symbol)
+
+### equailization
+
+![subcarrier](subcarrier.webp)
+
+- use pilot symbol to equalize channel fading.
+
+### decoding
+
+- demod
+
+  QAM to bits
+
+
+- demodulation
+  
+  complex number to bits
+    
+- deinterleaving
+  
+  shuffle the bits inside each OFDM symbol
+    
+- Convolution decoding
+
+  remove redundancy and correct potential bit errors
+    
+- Descramble.
+
+### SIGNAL
+
+- the first OFDM symbol after long preamble is the SIGNAL field, which contains the modulation rate and length of the packet. These information are needed to determine how many OFDM symbols to decode and how to decode them.
+
+### Verilog Hacks
+
+- Because of the limited capability of FPGA computation, compromises often need to made in the actual Verilog implementation. The most used techniques include quantization and look up table. In OpenOFDM, these approximations are used.
+
+For example, the magnitude of complex number <I, Q> is estimated as:
+$$M \approx \alpha*max(|I|, |Q|) + \beta*min(|I|, |Q|)$$
+and we set alpha = 1 beta = 0.25 so that only simple bit-shift is needed.
