@@ -190,7 +190,7 @@ set ip(restart the ethernet)
 
 - pilot
 
-  user pilot symbol in each OFDM frame to correct SFO(sample freq offset)
+  use pilot symbol in each OFDM frame to correct SFO(sample freq offset)
 
 ### symbol alignment
 
