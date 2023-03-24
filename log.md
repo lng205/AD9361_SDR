@@ -238,5 +238,7 @@ set ip(restart the ethernet)
 - Because of the limited capability of FPGA computation, compromises often need to made in the actual Verilog implementation. The most used techniques include quantization and look up table. In OpenOFDM, these approximations are used.
 
 For example, the magnitude of complex number <I, Q> is estimated as:
-$$M \approx \alpha*max(|I|, |Q|) + \beta*min(|I|, |Q|)$$
+
+$$ M \approx \alpha*max(|I|, |Q|) + \beta*min(|I|, |Q|) $$
+
 and we set alpha = 1 beta = 0.25 so that only simple bit-shift is needed.
