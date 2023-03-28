@@ -242,3 +242,47 @@ For example, the magnitude of complex number <I, Q> is estimated as:
 $$ M \approx \alpha*max(|I|, |Q|) + \beta*min(|I|, |Q|) $$
 
 and we set alpha = 1 beta = 0.25 so that only simple bit-shift is needed.
+
+# 3/28
+
+Try to make a low latency video streaming demo based on openwifi.
+
+Connect cellphone and board through wireless network, and stream video from cellphone camera to the board.
+
+Install streamlabs on cellphone. First try to stream to PC.Install ffmpeg on PC. Works well with latency at ~1 sec.
+
+Try to stream to the board. Run into an error indicating the lack of video driver on board. Need to push the data to PC via ethernet.
+
+Set route to the board via ethernet on PC. Therefore, the connection is PC->(wired)->board->(wireless)->cellphone. When the board is serving as AP, the packet loss rate is so high that the video quality is poor.
+
+- Latency of wired connection
+
+![ethernet](ethernet.png)
+
+Set cellphone as AP. Now the board and cellphone is in a subnet, and PC and the board is in another subnet.
+
+Connect board to cellphone AP(set wpa first):
+
+`wpa_supplicant -i sdr0 -c wpa-connect.conf & dhclient sdr0`
+
+Set NAT on board to connect two subnet:
+
+- enable ip forward
+
+`sudo sysctl -w net.ipv4.ip_forward=1`
+
+- set cellphone subnet in iptable
+
+`sudo iptables -t nat -A POSTROUTING -o NICY -j MASQUERADE`
+
+- set route
+
+`sudo ip route add 192.168.13.0/24 via 192.168.10.1 dev eth0`
+
+Test connection from PC to cellphone:
+
+![pic](PC2phoneViaBoard.png)
+
+Use ffmpeg to decode video on PC:
+
+`ffplay http://192.168.33.195:9060/1/v.flv -fflags nobuffer`
