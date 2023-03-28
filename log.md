@@ -50,7 +50,7 @@ Windows下运行类Unix的GNU Make程序可以选择安装Cygwin，一套在Wind
 
 通过Cygwin，于D:\zedboard\hdl-2021_r1\projects\fmcomms2\zed运行make, 得到.xpr项目文件，在Vivado中打开即可（no-OS开发需要的.xsa文件（即Vivado2019.3前的.hdf文件）位于sdk目录）。
 
-![运行结果](p2.jpg)
+![运行结果](pic/p2.jpg)
 
 ---
 
@@ -62,7 +62,7 @@ Windows下运行类Unix的GNU Make程序可以选择安装Cygwin，一套在Wind
 
 以管理员模式运行cmd, 运行setting64.bat后运行make.
 
-![运行结果](p3.jpg)
+![运行结果](pic/p3.jpg)
 
 运行make sdkopen在Vitis中打开项目。
 
@@ -155,7 +155,7 @@ install [openwifi](https://github.com/open-sdr/openwifi)
 
 set ip(restart the ethernet)
 
-![ip](ip_set.png)
+![ip](pic/ip_set.png)
 
 # 3/24
 
@@ -196,7 +196,7 @@ set ip(restart the ethernet)
 
 - In 802.11, each OFDM symbol is 4 μs long. At 20 MSPS sampling rate, this means each OFDM symbol contains 80 samples. The task is to group the incoming streaming of samples into 80-sample OFDM symbols. This can be achieved using the long preamble following the short preamble.
 
-  ![OFDM_frame](OFDM_frame.png)
+  ![OFDM_frame](pic/OFDM_frame.png)
 
 - FFT
 
@@ -204,7 +204,7 @@ set ip(restart the ethernet)
 
 ### equailization
 
-![subcarrier](subcarrier.webp)
+![subcarrier](pic/subcarrier.webp)
 
 - use pilot symbol to equalize channel fading.
 
@@ -257,7 +257,7 @@ Set route to the board via ethernet on PC. Therefore, the connection is PC->(wir
 
 - Latency of wired connection
 
-![ethernet](ethernet.png)
+![ethernet](pic/ethernet.png)
 
 Set cellphone as AP. Now the board and cellphone is in a subnet, and PC and the board is in another subnet.
 
@@ -281,8 +281,18 @@ Set NAT on board to connect two subnet:
 
 Test connection from PC to cellphone:
 
-![pic](PC2phoneViaBoard.png)
+![pic](pic/PC2phoneViaBoard.png)
 
 Use ffmpeg to decode video on PC:
 
 `ffplay http://192.168.33.195:9060/1/v.flv -fflags nobuffer`
+
+## wave sending
+
+transmit data via application layer using telnet.
+
+use [python script](https://pythonspot.com/python-network-sockets-programming-tutorial/)
+
+set ip as local ip on subnet.
+
+![telnet](pic/telnet.png)
