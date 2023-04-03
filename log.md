@@ -296,3 +296,17 @@ use [python script](https://pythonspot.com/python-network-sockets-programming-tu
 set ip as local ip on subnet.
 
 ![telnet](pic/telnet.png)
+
+# 4/2
+
+Try to build analog wave transmit demo.
+
+Follow the instruction of [esp32](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/get-started/index.html)
+
+Set dev enviroments on zedboard.
+
+The time setting of openwifi firmware is incorrect, which would results error in SSL validation. Set system time manualy with precision of 1s.
+
+Unable to find the correct serial port on zedboard. The name of tty* files dosen't change after pulg in the USB OTG port.
+
+Try to see if this method work on a normal PC.
