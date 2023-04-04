@@ -289,6 +289,8 @@ Use ffmpeg to decode video on PC:
 
 `ffplay http://192.168.33.195:9060/1/v.flv -fflags nobuffer`
 
+![streaming](pic/streaming.png)
+
 ## wave sending
 
 transmit data via application layer using telnet.
@@ -309,7 +311,7 @@ Set dev enviroments on zedboard.
 
 The time setting of openwifi firmware is incorrect, which would results error in SSL validation. Set system time manualy with precision of 1s.
 
-Unable to find the correct serial port on zedboard. The name of tty* files dosen't change after pulg in the USB OTG port.
+Unable to find the correct serial port on zedboard. The name of tty* files dosen't change after plug in the USB OTG port.
 
 Try to see if this method work on a normal PC.
 
