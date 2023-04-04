@@ -20,7 +20,7 @@ AD9361板卡型号[AD-FMCOMMS3-EBZ](https://wiki.analog.com/resources/eval/user-
 
 ## 10/4
 
-![AD板卡结构图](p1.jpg)
+![AD板卡结构图](pic/p1.jpg)
 
 [特性曲线](https://wiki.analog.com/resources/eval/user-guides/ad-fmcomms3-ebz/hardware/card_specification)(LO=Local Oscillator)
 
@@ -106,11 +106,13 @@ https://wiki.analog.com/resources/tools-software/linux-software/zynq_images
 
 通过路由器连接至同一局域网依然无法使用samba软件在Windows系统和ZYNQ的Linux系统间传送文件，重新安装samba服务。配置成功，可以通过网络共享文件。
 
-参考页面：https://www.cnblogs.com/shellstudio/p/10756419.html#:~:text=%E5%90%AF%E5%8A%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BB%A5%E5%90%8E%EF%BC%8C%E5%9C%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%85%A5%EF%BC%9A%20sudo%20apt%20-get%20update%20sudo%20apt,-get%20install%20samba%20samba%20-%20common%20-%20bin
+参考页面：
 
-https://forum.ubuntu.com.cn/viewtopic.php?t=275853
+[1](https://www.cnblogs.com/shellstudio/p/10756419.html#:~:text=%E5%90%AF%E5%8A%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BB%A5%E5%90%8E%EF%BC%8C%E5%9C%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%85%A5%EF%BC%9A%20sudo%20apt%20-get%20update%20sudo%20apt,-get%20install%20samba%20samba%20-%20common%20-%20bin)
 
-https://www.cnblogs.com/yunmeng-shi/p/16215277.html
+[2](https://forum.ubuntu.com.cn/viewtopic.php?t=275853)
+
+[3](https://www.cnblogs.com/yunmeng-shi/p/16215277.html)
 
 生成QPSK数据输入板卡并接收。
 
@@ -310,3 +312,17 @@ The time setting of openwifi firmware is incorrect, which would results error in
 Unable to find the correct serial port on zedboard. The name of tty* files dosen't change after pulg in the USB OTG port.
 
 Try to see if this method work on a normal PC.
+
+# 4/4
+
+The ttyUSB0 shows up after plugging in the USB on PC. So the problem might comes from the lack of driver on zedboard.
+
+Try to install the driver, and the make file run into an error.
+
+[similar problem](https://forums.raspberrypi.com/viewtopic.php?t=255114)
+
+The problem seems to be caused by [kernel headers](https://ez.analog.com/linux-software-drivers/f/q-a/565120/kuiper-kernel-version-number-causing-module-loading-and-compiling-issues).
+
+The solution seems to be too hard. Try to use MSP430f5529 instead.
+
+MSP430 runs into the same problem.
