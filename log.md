@@ -328,3 +328,9 @@ The problem seems to be caused by [kernel headers](https://ez.analog.com/linux-s
 The solution seems to be too hard. Try to use MSP430f5529 instead.
 
 MSP430 runs into the same problem.
+
+# 4/5
+
+Rebuild the kernel to generate header files.
+
+install cross compiler.
