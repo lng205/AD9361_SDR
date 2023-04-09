@@ -333,4 +333,12 @@ MSP430 runs into the same problem.
 
 Rebuild the kernel to generate header files.
 
-install cross compiler.
+Install cross compiler.
+
+Open a [issue](https://github.com/open-sdr/openwifi/issues/295).
+
+# 4/9
+
+Install ubuntu LTS 20.
+
+Install vitis 2021.1. [Solve an enviroment problem](https://blog.csdn.net/aatu/article/details/124404439).
