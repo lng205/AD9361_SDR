@@ -1,4 +1,4 @@
-# Zedboard+AD9361 SDR开发日志
+s# Zedboard+AD9361 SDR开发日志
 
 ## 10/3
 
@@ -342,3 +342,49 @@ Open a [issue](https://github.com/open-sdr/openwifi/issues/295).
 Install ubuntu LTS 20.
 
 Install vitis 2021.1. [Solve an enviroment problem](https://blog.csdn.net/aatu/article/details/124404439).
+
+Rebuild kernel using openwifi script.
+
+Set enviroment variable to proxy for the script:
+
+`export HTTP_PROXY="http://127.0.0.1:7890`
+
+Install [make](https://www.ruanyifeng.com/blog/2015/02/make.html):
+
+`sudo apt install -y make`
+
+# 4/10
+
+SSH server doesn't work after UART serial connection. Reinstall openwifi image.
+
+[TODO] Modify prepare_kernel.sh
+
+Set proxy on board:
+
+`export HTTPS_PROXY="http://192.168.10.1:7890"`
+
+Download driver on board:
+
+`curl https://www.silabs.com/documents/login/software/Linux_3.x.x_4.x.x_VCP_Driver_Source.zip --output -driver.zip`
+
+Modify the prepare_kernel.sh in openwifi/user_space:
+
+```shell
+make -j 8 modules
+sudo make modules_install INSTALL_MOD_PATH=/media/yb/rootfs/
+sudo make headers_install INSTALL_HDR_PATH=/media/yb/rootfs/usr
+```
+
+Try to find advice:
+ 
+我遇到了一个关于linux内核编译的问题。
+
+我在开发板上使用USB OTG接口作为串口主机与单片机进行通信时遇到了问题。我希望能够利用开发板上的USB OTG接口与单片机进行通信，但是在使用ADI的Kuiper Linux 2021_R1固件时，系统无法在设备目录中识别到单片机。经过分析，我猜测是因为系统缺少串口驱动。
+
+单片机的串口芯片是CP2102，我下载了官网提供的linux驱动，但是在编译驱动时出现了问题。编译命令是“make -C /lib/modules/uname -r/build M=/root/esp/driver modules”，但是出现了“/lib/modules/5.10.0-98248-g1bbe32fa5182-dirty/build: No such file or directory” 的错误信息，提示缺少所需的内核模块目录。
+ 
+我搜索到了一个相似的问题：https://ez.analog.com/linux-software-drivers/f/q-a/565120/kuiper-kernel-version-number-causing-module-loading-and-compiling-issues
+
+我尝试自行编译内核，但是出现了内核版本不正确的问题，且其中包含指向内核源目录的软连接，该目录不在SD卡内。在更改Makefile为编译得到的内核版本5.10.0，且手动替换软连接后，仍然无法解决问题。现在我正在尝试在SD卡中重新编译内核，但是固件的编译过程十分繁琐和复杂。
+
+这个问题已经占用了我数天的时间，我想请教您有什么建议可以帮助我解决这个问题。
