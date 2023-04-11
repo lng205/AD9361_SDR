@@ -411,3 +411,5 @@ Use screen program to connect to serial port(use CTRL+A K to kiil the process):
 [Learn](https://www.liaoxuefeng.com/wiki/1016959663602400/1017788916649408) to write a python script to relay the data from esp32 to another device via wireless network.
 
 Connect the board to wifi [using wpa_supplicant](https://pluhuxc.github.io/2018/08/19/use-wpa_supplicant-connect-wifi.html).
+
+[Learn python serial comm](https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p20_communicating_with_serial_ports.html).
