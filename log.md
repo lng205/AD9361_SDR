@@ -413,3 +413,5 @@ Use screen program to connect to serial port(use CTRL+A K to kiil the process):
 Connect the board to wifi [using wpa_supplicant](https://pluhuxc.github.io/2018/08/19/use-wpa_supplicant-connect-wifi.html).
 
 [Learn python serial comm](https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p20_communicating_with_serial_ports.html).
+
+The UART connection bewteen PC and the board would behave strange sometimes, and replug the USB cable could solve the problem.
