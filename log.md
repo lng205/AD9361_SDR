@@ -388,3 +388,24 @@ Try to find advice:
 我尝试自行编译内核，但是出现了内核版本不正确的问题，且其中包含指向内核源目录的软连接，该目录不在SD卡内。在更改Makefile为编译得到的内核版本5.10.0，且手动替换软连接后，仍然无法解决问题。在SD卡中重新编译内核，出现“/bin/sh: 1: scripts/basic/fixdep: Exec format error”错误。现在正计划改为使用串口传网口模块与单片机进行通信，使用UART串口对上位机进行通信。
 
 这个问题已经占用了我数天的时间，我想请教您有什么建议可以帮助我解决这个问题。
+
+# 4/11
+
+Configure the .config file in linux source and compile the kernel, and enable cp210x driver. The device appear under /dev. Yet the new kernel is only 4.6MB while the old one is 5.6MB. The new kernel has error running /openwifi/wgd.sh.
+
+The method of reconfigure the SD card are as follow:
+
+1. flash image to card.
+2. move /BOOT/openwifi/zed_fmc2_3/* /BOOT/
+3. ssh root@192.168.10.122
+4. openwifi/setup_once.sh
+
+The serial to ethernet module work. Try to connect the board from PC using serial port, and connect from esp32 using ethernet.
+
+Use screen program to connect to serial port(use CTRL+A K to kiil the process):
+
+`sudo screen /dev/ttyUSB0 115200`
+
+[Learn](https://www.liaoxuefeng.com/wiki/1016959663602400/1017788916649408) to write a python script to relay the data from esp32 to another device via wireless network.
+
+Connect the board to wifi [using wpa_supplicant](https://pluhuxc.github.io/2018/08/19/use-wpa_supplicant-connect-wifi.html).
