@@ -393,6 +393,8 @@ Try to find advice:
 
 Configure the .config file in linux source and compile the kernel, and enable cp210x driver. The device appear under /dev. Yet the new kernel is only 4.6MB while the old one is 5.6MB. The new kernel has error running /openwifi/wgd.sh.
 
+Modify the openwifi/kernel_boot/kernel_config to enable cp210x driver. Use the script to compile the kernel and transfer it to the board. The new kernel is ~7kB larger than the old one. Solve the driver problem. 
+
 The method of reconfigure the SD card are as follow:
 
 1. flash image to card.
