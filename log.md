@@ -415,3 +415,9 @@ Connect the board to wifi [using wpa_supplicant](https://pluhuxc.github.io/2018/
 [Learn python serial comm](https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p20_communicating_with_serial_ports.html).
 
 The UART connection bewteen PC and the board would behave strange sometimes, and replug the USB cable could solve the problem.
+
+# 4/12
+
+The latency of cellphone AP is ~20ms, and is not suitable for real time continue wave transmission. The unstable network latency would cause the package to arrive in varius interval, resulting a terrible output waveform in a non-blocking transmission system.
+
+Use one board serving as AP, and use the other to connect to it. The TTL time of this method via ping can be less than 1 ms. Sending a package every 2ms, the system could output an accecptable wave.
