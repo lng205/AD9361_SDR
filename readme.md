@@ -16,7 +16,7 @@
 
 2. 下载最新的openwifi[镜像](https://drive.google.com/file/d/12egFLT9TclmY8m3vCMHmUuSne3qK0SWc/view?usp=sharing)，并使用刻录工具烧录至sd卡内。
 
-3. 将\BOOT\openwifi\zed_fmcs2目录下的.dtb和.BIN文件复制到根目录(\BOOT)，将根目录下的uImage文件替换为本项目提供的uImage文件（需要Linux系统以识别\BOOT分区使用的MS-DOS文件系统）。
+3. 将\BOOT\openwifi\zed_fmcs2目录下的.dtb和.BIN文件复制到根目录(\BOOT)，将根目录下的uImage文件替换为本项目的zedboard/uImage文件（需要Linux系统以识别\BOOT分区使用的MS-DOS文件系统）。
 
 4. **弹出**SD卡。拔出SD卡并将其插入开发板。
 
@@ -38,9 +38,9 @@
 
 ## Python转发脚本
 
-- client.py: 获取单片机通过串口发来的采样数据，并使用UDP协议转发至AP。
+- [client.py](./zedboard/client.py): 获取单片机通过串口发来的采样数据，并使用UDP协议转发至AP。
 
-- server.py: 监听UDP端口，将收到的数据通过串口转发至单片机。
+- [server.py](./zedboard/server.py): 监听UDP端口，将收到的数据通过串口转发至单片机。
 
 ## esp32程序
 
