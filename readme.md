@@ -6,13 +6,15 @@
 
 - 平台目前实现了低时延连续数据传输，收发端输出的连续波时延小于3毫秒。
 
+- 测量本地转发时延，估计网络转发带来的时延。[TODO]
+
 ## 配置方法
 
 ### 初始化
 
 1. 将开发板上的MIO4, MIO5跳线置高（使开发板通过SD卡启动）。
 
-2. 下载最新的openwifi镜像，并使用刻录工具烧录至sd卡内。
+2. 下载最新的openwifi[镜像](https://drive.google.com/file/d/12egFLT9TclmY8m3vCMHmUuSne3qK0SWc/view?usp=sharing)，并使用刻录工具烧录至sd卡内。
 
 3. 将\BOOT\openwifi\zed_fmcs2目录下的.dtb和.BIN文件复制到根目录(\BOOT)，将根目录下的uImage文件替换为本项目提供的uImage文件（需要Linux系统以识别\BOOT分区使用的MS-DOS文件系统）。
 
@@ -32,6 +34,8 @@
 
 - client: `wpa_supplicant -i sdr0 -c openwifi/wpa-openwifi.conf`
 
+- 关闭：[TODO]
+
 ## Python转发脚本
 
 - client.py: 获取单片机通过串口发来的采样数据，并使用UDP协议转发至AP。
@@ -40,7 +44,9 @@
 
 ## esp32程序
 
-[TODO]
+程序介绍：[TODO]
+
+使用FIFO和定时器，实现在发包频率不变的情况下提高采样率。[TODO]
 
 ## 其他
 
@@ -51,3 +57,5 @@
 - clinet连接其他wifi: 修改wpa-connect.conf并使用`wpa_supplicant -i sdr0 -c openwifi/wpa-connect.conf`运行。
 
 - 添加驱动：本项目提供的linux内核文件uImage是在openwifi的内核基础上，添加了CP210x驱动模块，重新编译得到。如需添加其他linux内核模块，需克隆openwifi项目源码，修改kernel_boot/kernel_config并启用所需模块，然后执行`cd openwifi/user_space; ./prepare_kernel.sh $Xilinx_PATH 32`命令（$Xilinx_PATH为Vitis安装目录，目前需要Vitis2021.1版本），编译生成的内核为openwifi/adi-linux/arch/arm/boot/uImage文件。使用新内核替换原有内核，之后重新输入命令`openwifi/setup_once.sh`，完成内核模块的添加（尚无法直接在板子上安装模块，该问题已报为[issues/295](https://github.com/open-sdr/openwifi/issues/295)）。
+
+- 使用`shutdown`命令关闭内核后可能出现无法启动的问题，暂时建议保持开机或者直接断电。
