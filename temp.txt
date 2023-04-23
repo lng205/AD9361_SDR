@@ -1,0 +1,17 @@
+# systemctl status networking.service
+
+● networking.service - Raise network interfaces
+     Loaded: loaded (/lib/systemd/system/networking.service; enabled; vendor preset: enabled)
+     Active: failed (Result: exit-code) since Thu 2023-02-09 11:08:27 GMT; 4min 10s ago
+       Docs: man:interfaces(5)
+    Process: 1963 ExecStart=/sbin/ifup -a --read-environment (code=exited, status=1/FAILURE)
+   Main PID: 1963 (code=exited, status=1/FAILURE)
+        CPU: 339ms
+
+Feb 09 11:08:25 analog systemd[1]: Starting Raise network interfaces...
+Feb 09 11:08:25 analog ifup[2021]: RTNETLINK answers: No such device
+Feb 09 11:08:25 analog ifup[1963]: ifup: failed to bring up eth0
+Feb 09 11:08:27 analog systemd[1]: networking.service: Main process exited, code=exited, status=1/FAILURE
+Feb 09 11:08:27 analog systemd[1]: networking.service: Failed with result 'exit-code'.
+Feb 09 11:08:27 analog systemd[1]: Failed to start Raise network interfaces.
+~

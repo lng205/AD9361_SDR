@@ -421,3 +421,15 @@ The UART connection bewteen PC and the board would behave strange sometimes, and
 The latency of cellphone AP is ~20ms, and is not suitable for real time continue wave transmission. The unstable network latency would cause the package to arrive in varius interval, resulting a terrible output waveform in a non-blocking transmission system.
 
 Use one board serving as AP, and use the other to connect to it. The TTL time of this method via ping can be less than 1 ms. Sending a package every 2ms, the system could output an accecptable wave.
+
+# 4/13
+
+Build a low latency end-to-end analog wave tranmission system.
+
+# 4/14
+
+Add [readme](./readme.md)
+
+# 4/23
+
+Try to move the platform to ANTSDR_E310. The openwifi firmware from MicroPhase does not support OTG. The firmware from openwifi can not bring up network interface.
