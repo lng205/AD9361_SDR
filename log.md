@@ -424,7 +424,7 @@ Use one board serving as AP, and use the other to connect to it. The TTL time of
 
 # 4/13
 
-Build a low latency end-to-end analog wave tranmission system.
+I Built a low latency end-to-end analog wave tranmission system.
 
 # 4/14
 
@@ -432,4 +432,14 @@ Add [readme](./readme.md)
 
 # 4/23
 
-Try to move the platform to ANTSDR_E310. The openwifi firmware from MicroPhase does not support OTG. The firmware from openwifi can not bring up network interface.
+I tried to move the platform to ANTSDR_E310, but the openwifi firmware from MicroPhase doesn't support OTG. The firmware from Openwifi couldn't bring up the network interface.
+
+To resolve this issue, I learned how to compile and flash esp32 on Ubuntu. I followed the [esp-idf](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html) tutorial and successfully ran "helloworld". However, the tool chain is for developing in C, which is complicated and hard to port.
+
+![pic](pic/hello_world.png)
+
+Next, I looked for a way to use the Arduino IDE to develop esp32 on Linux. I found a better solution: [platformio](https://randomnerdtutorials.com/vs-code-platformio-ide-esp32-esp8266-arduino/#2).
+
+![pic](pic/platfromio.png)
+
+The extension would prompt up a [hint](https://docs.platformio.org/en/latest/faq/ino-to-cpp.html) to port .ino file to .cpp file.
