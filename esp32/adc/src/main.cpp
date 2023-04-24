@@ -1,12 +1,21 @@
 #include <Arduino.h>
 #define adcPin 32
+#define MAX 16
 int adcValue = 0;
 hw_timer_t *tim0 = NULL;
+char count = 0;
 
 void tim0Interrupt()
 {
   adcValue=analogRead(adcPin);
   Serial.write(adcValue>>4);// convert to char and send
+  if(count < MAX) {
+    count++;
+  }
+  else {
+    count = 0;
+    Serial.write('\n');
+  }
 }
 
 void setup()
