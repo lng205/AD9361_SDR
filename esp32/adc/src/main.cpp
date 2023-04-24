@@ -11,10 +11,10 @@ void tim0Interrupt()
 
 void setup()
 {
-  Serial.begin(230400);
-  tim0 = timerBegin(0, 80, true); 
+  Serial.begin(115200);
+  tim0 = timerBegin(0, 80, true);
   timerAttachInterrupt(tim0, tim0Interrupt, true);
-  timerAlarmWrite(tim0, 2000, true);
+  timerAlarmWrite(tim0, 1000, true);
   timerAlarmEnable(tim0);
 }
 

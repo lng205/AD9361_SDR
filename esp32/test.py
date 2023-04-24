@@ -1,7 +1,8 @@
 import serial
 
-dac = serial.Serial('/dev/ttyUSB1', baudrate=230400)
-adc = serial.Serial('/dev/ttyUSB2', baudrate=230400)
+dac = serial.Serial('/dev/ttyUSB1', baudrate=115200)
+adc = serial.Serial('/dev/ttyUSB2', baudrate=115200, timeout=1)
 
 while True:
+    # print(ord(adc.read()))
     dac.write(adc.read())
