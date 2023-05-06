@@ -34,7 +34,7 @@
 
 - AP: `~/openwifi/fosdem.sh`
 
-- client: `wpa_supplicant -i sdr0 -c ~/openwifi/wpa-openwifi.conf &`，其中-i制定网卡，-c指定配置文件，&指定在后台运行。之后通过`dhclinet`获取ip。
+- client: `wpa_supplicant -i sdr0 -c ~/openwifi/wpa-openwifi.conf &`，其中-i指定网卡，-c指定配置文件，&指定在后台运行。之后通过`dhclinet`获取ip。
 
 - 关闭：查看fosdem.sh，发现其中使用了hostapd命令使网卡工作在模拟AP模式，因此可通过`killall hostapd`和`killall wpa_supplicant`关闭。
 
